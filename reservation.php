@@ -26,12 +26,12 @@
 
         foreach($ligneReservation as $reservation){
         
-        
-
-
-
-
-            
+            ?>
+            <div>
+            <p>Véhicule: <?php echo $reservation['marque'].' '.$reservation['modele'];?> réservé par <?php echo $reservation['prenom'].' '.$reservation['nom']; ?> 
+            Du <?php echo $reservation['dateDebut']; ?> au <?php echo $reservation['dateFin']; ?></p>
+            </div>
+            <?php
         }
 
     }
