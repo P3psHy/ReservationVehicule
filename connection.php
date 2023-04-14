@@ -18,7 +18,7 @@ try {
     $connection->query("SET NAMES utf8") ;
 }catch (BadFunctionCallException $e){
     echo "connection à MySQL inpossible : ", $e->getMessage();
-    die();
+    die(); 
 }
 
 ?>

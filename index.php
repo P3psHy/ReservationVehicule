@@ -7,6 +7,23 @@
     <title>Reservation Véhicule</title>
 </head>
 <body>
-    <a href="ajouterReservation.php"><button>Ajouter Reservation</button></a>
+    <h2>Connexion</h2>
+    <form action="verifCompte.php" method="get">
+        <div>
+            <label for="">Nom utilisateur</label><br>
+            <input name="username" type="text" placeholder="prenom.nom">
+        </div>
+
+        <br>
+        <div>
+            <label for="">Mot de passe</label><br>
+            <input name="psw" type="text" placeholder="mot de passe">
+        </div>
+        
+
+        <p>Si vous avez oubliez votre mot de passe, veuillez contacter la Maintenance-SI en donnant votre nouveau mot de passe.</p>
+        
+        <div><button type="submit">Connexion</button></div>
+    </form>
 </body>
 </html>
