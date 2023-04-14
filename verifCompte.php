@@ -14,6 +14,7 @@ $lignePersonne = $sqlPersonne->fetchall();
 foreach($lignePersonne as $personne){
     if($_REQUEST['psw'] == $personne['psw']){
         echo "Ok";
+        $_SESSION['username']= $_REQUEST['username'];
         header("Location: reservation.php");
 
     }else{
