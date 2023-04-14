@@ -7,7 +7,7 @@
     <title>Reservation Véhicule</title>
 </head>
 <body>
-
+    <h2>Véhicule réservé</h2>
     <?php
     require_once "connection.php";
 
