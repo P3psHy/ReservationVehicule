@@ -30,7 +30,7 @@ function verifDateFin(){
     var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 
     if(Difference_In_Days<0 || Difference_In_Days>7){
-        alert('Date incorrect ! La date de finne doit ni être antérieur ni excéder 7 jour après la date de réservation.');
+        alert('Date incorrect ! La date de fin ne doit ni être antérieur ni excéder 7 jour après la date de réservation.');
 
         check2=false;
         verifButton();
@@ -49,7 +49,6 @@ function verifVehicule(){
 
     if(listeVehicule == "default"){
         alert('Veuillez sélectiooner un véhicule');
-
 
         check3=false;
         verifButton();

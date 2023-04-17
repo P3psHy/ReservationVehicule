@@ -36,7 +36,7 @@ if(!isset($_SESSION['username'])){
 
     </div>
         <label for="listeVehicule">Véhicules</label>
-        <select name="listeVehicule" id="listeVehicule" onchange="verifVehicule()">
+        <select name="idVehicule" id="listeVehicule" onchange="verifVehicule()">
             <option value="default" selected>Sélectionez un véhicule</option>
             <?php
             require_once "connection.php";
@@ -59,9 +59,13 @@ if(!isset($_SESSION['username'])){
         
     </div>
         <button id="submitReservation" type="submit">Valider</button>
+        <button type="reset">Annuler</button>
+        <a href="reservation.php"><button>Retour</button>
+</a>
     </form>
 
     <script src="jsReservation.js"></script>
+
 </body>
 </html>
 

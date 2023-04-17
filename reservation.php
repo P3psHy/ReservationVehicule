@@ -9,10 +9,12 @@
 <body>
     <h2>Véhicule réservé</h2>
     <?php
+    session_start();
+
     require_once "connection.php";
 
 
-    $sqlReservation=$connection ->prepare('SELECT dateDebut, dateFin, vehicule.marque, vehicule.modele, utilisateur.nom, utilisateur.prenom 
+    $sqlReservation=$connection ->prepare('SELECT idReservation, dateDebut, dateFin, vehicule.marque, vehicule.modele, utilisateur.nom, utilisateur.prenom, utilisateur.nomUser
                                             FROM reservation 
                                             INNER JOIN utilisateur ON reservation.idUser = utilisateur.idUser 
                                             INNER JOIN vehicule ON reservation.idVehicule=vehicule.idVehicule;');
@@ -29,9 +31,12 @@
             ?>
             <div>
             <p>Véhicule: <?php echo $reservation['marque'].' '.$reservation['modele'];?> réservé par <?php echo $reservation['prenom'].' '.$reservation['nom']; ?> 
-            Du <?php echo $reservation['dateDebut']; ?> au <?php echo $reservation['dateFin']; ?></p>
-            </div>
+            du <?php echo $reservation['dateDebut']; ?> au <?php echo $reservation['dateFin']; ?></p>
+            
             <?php
+            if($reservation['nomUser'] == $_SESSION['username']){
+                echo'<a href="deleteReservation.php?idReservation='.$reservation['idReservation'].'"><button>Retirer</button></a></div>';
+            }
         }
 
     }

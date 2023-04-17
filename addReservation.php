@@ -2,7 +2,6 @@
 session_start();
     require_once "connection.php";
 
-    var_dump($_SESSION);
 
     $sqlPersonne=$connection ->prepare('SELECT idUser FROM utilisateur WHERE nomUser = :user');
     $sqlPersonne->bindParam(":user", $_SESSION['username']);
@@ -31,7 +30,7 @@ session_start();
     $sqlReservation->debugDumpParams();
     
     if($sqlReservation){
-        echo"ajouté";
+        header("location: reservation.php");
     }else{
         echo"erreur";
     }
