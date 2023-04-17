@@ -1,13 +1,53 @@
-var check1=0;
-var check2=0;
-var check3=0;
+var check1=false;
+var check2=false;
+var check3=true;
 
 function verifDateDebut(){
-    const dateDebut = document.getElementById("dateDebut").value;
-    const date = new Date();
-    console.log('test+');
-    if(dateDebut <date){
-        console.log('Date incorrect');
-        alert('date incorrect');
+    const dateDebut = new Date(document.getElementById("dateDebut").value);
+
+    var q = new Date();
+    var date = new Date(q.getFullYear(),q.getMonth(),q.getDate());
+
+    if(dateDebut < date){
+        alert('Date incorrect ! Veuillez saisir la date du jour ou une date ultérieur.');
+
+        check1=false;
+        verifButton();
+    }else{
+        check1=true;
+        verifButton();
+    }
+}
+
+
+function verifDateFin(){
+
+    const dateDebut = new Date(document.getElementById("dateDebut").value);
+    const dateFin = new Date(document.getElementById("dateFin").value);
+
+
+    var Difference_In_Time = dateFin.getTime() - dateDebut.getTime();
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+    if(Difference_In_Days<0 || Difference_In_Days>7){
+        check2=false;
+        verifButton();
+    }else{
+        check2=true;
+        verifButton();
+
+    }
+    console.log(check1 + " " + check2 + " "+ check3 );
+
+}
+
+
+
+function verifButton(){
+    if(check1 && check2 && check3){
+        document.getElementById('submitReservation').disabled = false;
+    }else{
+        document.getElementById('submitReservation').disabled = true;
+
     }
 }

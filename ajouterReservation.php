@@ -22,16 +22,16 @@ if(!isset($_SESSION['username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajout Réservation</title>
 </head>
-<body>
+<body onload="verifButton()">
     <h2>Créér votre réservation</h2>
     <form action="addReservation.php" method="get">
 
     <div>
-        <label for="dateDebut" onchange="verifDateDebut()">Date de début</label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date n'est pas déjà dépassé -->
-        <input id="dateDebut" name="dateDebut" type="date">
+        <label for="dateDebut">Date de début</label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date n'est pas déjà dépassé -->
+        <input id="dateDebut" name="dateDebut" type="date" onchange="verifDateDebut()">
     </div>
         <label for="dateFin">Date de fin</label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date ne dépasse pas le temps autorisé par l'entreprise -->
-        <input id="dateFin" name="dateFin" type="date">
+        <input id="dateFin" name="dateFin" type="date" onchange="verifDateFin()">
     <div>
 
     </div>
@@ -56,7 +56,7 @@ if(!isset($_SESSION['username'])){
     <div>
         
     </div>
-        <button type="submit">Valider</button>
+        <button id="submitReservation" type="submit">Valider</button>
     </form>
 
     <script src="jsReservation.js"></script>
