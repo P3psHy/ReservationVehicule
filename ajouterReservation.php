@@ -35,13 +35,15 @@ if(!isset($_SESSION['username'])){
     <div>
 
     </div>
-        <label for="">Véhicules</label>
-        <select name="idVehicule" id="">
+        <label for="listeVehicule">Véhicules</label>
+        <select name="listeVehicule" id="listeVehicule" onchange="verifVehicule()">
             <option value="default" selected>Sélectionez un véhicule</option>
             <?php
             require_once "connection.php";
 
-            $sqlVehicule=$connection ->prepare('SELECT * FROM vehicule');
+            $sqlVehicule=$connection ->prepare('SELECT * FROM vehicule WHERE vehicule.idVehicule NOT IN (SELECT vehicule.idVehicule
+                                                                                                        FROM reservation
+                                                                                                        INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule);');
             
             $sqlVehicule->execute();
             $ligneVehicule = $sqlVehicule->fetchall();
