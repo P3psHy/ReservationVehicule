@@ -11,7 +11,7 @@
     <form action="verifCompte.php" method="get">
         <div>
             <label for="">Nom utilisateur</label><br>
-            <input name="username" type="text" placeholder="prenom.nom">
+            <input id="username" name="username" type="text" placeholder="prenom.nom" onchange="verifUsername()"><br/>
         </div>
 
         <br>
@@ -25,5 +25,7 @@
         
         <div><button type="submit">Connexion</button></div>
     </form>
+
+    <script src="jsConnexion.js"></script>
 </body>
 </html>

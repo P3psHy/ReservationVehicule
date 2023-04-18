@@ -35,7 +35,7 @@ if(!isset($_SESSION['username'])){
     <div>
 
     </div>
-        <label for="listeVehicule">Véhicules</label>
+        <label for="listeVehicule">Véhicules disponibles</label>
         <select name="idVehicule" id="listeVehicule" onchange="verifVehicule()">
             <option value="default" selected>Sélectionez un véhicule</option>
             <?php
@@ -43,7 +43,8 @@ if(!isset($_SESSION['username'])){
 
             $sqlVehicule=$connection ->prepare('SELECT * FROM vehicule WHERE vehicule.idVehicule NOT IN (SELECT vehicule.idVehicule
                                                                                                         FROM reservation
-                                                                                                        INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule);');
+                                                                                                        INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule
+                                                                                                        WHERE dateFin < NOW());');
             
             $sqlVehicule->execute();
             $ligneVehicule = $sqlVehicule->fetchall();
