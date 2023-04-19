@@ -24,6 +24,7 @@ foreach($lignePersonne as $personne){
 
     }
 }
+header("Location: index.php");
 
 
 

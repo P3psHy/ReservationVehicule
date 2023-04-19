@@ -12,17 +12,17 @@
 </head>
 <body>
     <h2>Connexion Administrateur</h2>
-    <form action="verifCompte.php" method="get">
+    <form action="connexionPsw.php" method="get">
         <div>
-            <label for="">adresse Mail</label><br>
-            <input id="mail" name="mail" type="text" placeholder="prenom.nom" onchange="verifUsername()"><br/>
+            <label for="">Adresse Mail</label><br>
+            <input id="mail" name="mail" type="text"><br/>
         </div>
 
 
-        <div><button type="submit">Suivant</button></div>
+        <div><button type="submit">Suivant</button>
         <button type="reset">Annuler</button>
-        <a href="<../index.php"><button>Retour</button>
     </form>
+    <a href="<../index.php"><button>Retour</button></div>
 
     <script src="jsConnexion.js"></script>
 </body>

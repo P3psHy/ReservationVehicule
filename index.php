@@ -25,7 +25,7 @@
         
         <div><button type="submit">Connexion</button></div>
     </form>
-
+    <a href="BackOffice/connexionMail.php"><button>Connexion Admin</button></a>
     <script src="jsConnexion.js"></script>
 </body>
 </html>

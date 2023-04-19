@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Connexion Administrateur</h2>
-    <form action="verifCompte.php" method="get">
+    <form action="verifAdmin.php" method="get">
         <div>
             <label for="">Mot de passe</label><br>
             <input id="psw" name="psw" type="password" placeholder="mot de passe" onchange="verifUsername()"><br/>
@@ -18,9 +18,9 @@
 
         <div><button type="submit">Suivant</button></div>
         <button type="reset">Annuler</button>
-        <a href="connexionMail.php"><button>Retour</button>
+        
     </form>
-
+    <a href="connexionMail.php"><button>Retour</button>
     <script src="jsConnexion.js"></script>
 </body>
 </html>
