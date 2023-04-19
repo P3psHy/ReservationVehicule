@@ -7,23 +7,24 @@ $sqlPersonne=$connection ->prepare('SELECT * FROM administrateur WHERE mail = :m
 $sqlPersonne->bindParam(":mail", $_REQUEST['mail']);
 
 $sqlPersonne->execute();
+$sqlPersonne->debugDumpParams();
 
 $lignePersonne = $sqlPersonne->fetchall();
 
 foreach($lignePersonne as $personne){
-    if($_REQUEST['psw'] == $personne['psw']){
+    echo"<br/>".$personne['psw']."<br/>".$_REQUEST['psw']."<br/>";
+    if($_REQUEST['psw'] === $personne['psw']){
         echo "Ok";
-        $_SESSION['username']= $_REQUEST['mail'];
+        $_SESSION['adminEstConnecte']= true;
     
         header("Location: BackOffice.php");
 
     }else{
         echo "Pas Ok";
-        header("Location: connexionPsw.php");
+        //header("Location: connexionPsw.php?mail=".$_REQUEST['mail']."");
 
     }
 }
-header("Location: connexionPsw.php?mail=".$_REQUEST['mail']);
 
 
 

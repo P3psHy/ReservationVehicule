@@ -1,3 +1,24 @@
+<?php
+
+session_start();
+require_once "../connection.php";
+
+$sqlPersonne=$connection ->prepare('SELECT * FROM administrateur WHERE mail = :mail;');
+$sqlPersonne->bindParam(":mail", $_REQUEST['mail']);
+
+$sqlPersonne->execute();
+$sqlPersonne->debugDumpParams();
+if($sqlPersonne->rowCount() == 0){
+    echo"email faux";
+    //header('Location: connexionMail.php');
+}else{
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,3 +45,8 @@
     <script src="jsConnexion.js"></script>
 </body>
 </html>
+
+<?php
+}
+
+?>
