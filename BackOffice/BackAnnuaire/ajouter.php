@@ -1,19 +1,21 @@
 <?php
 
 switch ($_REQUEST['id']) {
-    case '1': //
+    case '1': //Fonctionnel
 
         require_once "../../connection.php";
 
-        $sqlAjoutGroupe=$connection ->prepare('DELETE FROM groupes WHERE id=:idGroupe');
-        $sqlAjoutGroupe->bindParam(":idGroupe", $_REQUEST['idGroupe']);
+        $sqlAjoutGroupe=$connection ->prepare('INSERT INTO groupes(nom, telephone, mail) VALUES (:nom, :telephone, :mail)');
+        $sqlAjoutGroupe->bindParam(":nom", $_REQUEST['nom']);
+        $sqlAjoutGroupe->bindParam(":telephone", $_REQUEST['telephone']);
+        $sqlAjoutGroupe->bindParam(":mail", $_REQUEST['mail']);
 
         $sqlAjoutGroupe->execute();
 
 
         break;
     
-    case '2': //
+    case '2': //Fonctionnel
 
         require_once "../../connection.php";
 

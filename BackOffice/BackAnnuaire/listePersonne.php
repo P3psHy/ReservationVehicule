@@ -22,7 +22,7 @@
     foreach($ligneGroupe as $groupe){
         ?>
         <div style="margin-bottom:10px;">
-            <label>Groupe: <?php echo $groupe['nom']; ?></label>
+            <label><?php echo $groupe['nom']; ?></label>
             <a href="blank"><button>Modifier</button></a>
             <a href="blank"><button>Supprimer</button></a>
 
@@ -34,7 +34,7 @@
 
 
     ?>
-    <a href="http://"><button>Ajouter une personne</button></a>
+    <a href="ajouterForm.php?id=2&idGroupe=<?php echo $_REQUEST['idGroupe']; ?>"><button>Ajouter une personne</button></a>
     <a href="listeGroupe.php"><button>Retour</button></a>
 </body>
 </html>
