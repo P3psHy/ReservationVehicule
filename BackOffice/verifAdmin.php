@@ -21,7 +21,7 @@ foreach($lignePersonne as $personne){
 
     }else{
         echo "Pas Ok";
-        //header("Location: connexionPsw.php?mail=".$_REQUEST['mail']."");
+        header("Location: connexionPsw.php?mail=".$_REQUEST['mail']."");
 
     }
 }
