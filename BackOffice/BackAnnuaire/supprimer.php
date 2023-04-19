@@ -1,30 +1,30 @@
 <?php
 
 switch ($_REQUEST['id']) {
-    case '1': //
+    case '1': //Fonctionnel Mettre en place un trigger pour supprimer tous les membres du groupe
 
         require_once "../../connection.php";
 
-        $sqlAjoutGroupe=$connection ->prepare('DELETE FROM groupes WHERE id=:idGroupe');
-        $sqlAjoutGroupe->bindParam(":idGroupe", $_REQUEST['idGroupe']);
+        $sqlSupprGroupe=$connection ->prepare('DELETE FROM groupes WHERE id=:idGroupe');
+        $sqlSupprGroupe->bindParam(":idGroupe", $_REQUEST['idGroupe']);
 
-        $sqlAjoutGroupe->execute();
+        $sqlSupprGroupe->execute();
+
+        header("Location: listeGroupe.php");
 
 
         break;
     
-    case '2': //
+    case '2': //Fonctionnel
 
         require_once "../../connection.php";
 
-        $sqlAjoutPersonne=$connection ->prepare('INSERT INTO personnes(nom, telephone, mail, groupeId) VALUES (:nom, :telephone, :mail, :groupeId)');
-        $sqlAjoutPersonne->bindParam(":nom", $_REQUEST['nom']);
-        $sqlAjoutPersonne->bindParam(":telephone", $_REQUEST['telephone']);
-        $sqlAjoutPersonne->bindParam(":mail", $_REQUEST['mail']);
-        $sqlAjoutPersonne->bindParam(":groupeId", $_REQUEST['idGroupe']);
+        $sqlSupprPersonne=$connection ->prepare('DELETE FROM personnes WHERE id=:id');
+        $sqlSupprPersonne->bindParam(":id", $_REQUEST['idPersonne']);
 
-        $sqlAjoutPersonne->execute();
-        $sqlAjoutPersonne->debugDumpParams();
+        $sqlSupprPersonne->execute();
+
+        header("Location: listeGroupe.php");
 
         break;
     

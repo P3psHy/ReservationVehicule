@@ -24,7 +24,7 @@
             <label>Groupe: <?php echo $groupe['nom']; ?></label>
             <a href="listePersonne.php?idGroupe=<?php echo$groupe['id'] ?>"><button>Afficher membres</button></a>
             <a href="blank"><button>Modifier</button></a>
-            <a href="blank"><button>Supprimer</button></a>
+            <a href="supprimer.php?id=1&idGroupe=<?php echo $groupe['id'] ?>"><button>Supprimer</button></a>
 
         </div>
         <?php

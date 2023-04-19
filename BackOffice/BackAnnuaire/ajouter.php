@@ -12,6 +12,8 @@ switch ($_REQUEST['id']) {
 
         $sqlAjoutGroupe->execute();
 
+        header("Location: listeGroupe.php");
+
 
         break;
     
@@ -26,7 +28,9 @@ switch ($_REQUEST['id']) {
         $sqlAjoutPersonne->bindParam(":groupeId", $_REQUEST['idGroupe']);
 
         $sqlAjoutPersonne->execute();
-        $sqlAjoutPersonne->debugDumpParams();
+
+        header("Location: listeGroupe.php");
+
 
         break;
     
