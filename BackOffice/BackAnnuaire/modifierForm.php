@@ -60,7 +60,16 @@ switch ($_REQUEST['id']) {
 
     case "2": 
 
+        require_once "../../connection.php";
+
+
+        $sqlGroupe=$connection ->prepare('SELECT * FROM personnes WHERE id = :id');
+        $sqlGroupe->bindParam(":id", $_REQUEST['idPersonne']);
     
+        $sqlGroupe->execute();
+
+        $ligneGroupe = $sqlGroupe->fetchall();
+        foreach($ligneGroupe as $groupe){
 
         ?>
         
@@ -69,20 +78,20 @@ switch ($_REQUEST['id']) {
 
             <div>
                 <label for="">Nom</label>
-                <input type="text" name="nom" required>
+                <input type="text" name="nom" value="<?php echo $groupe['nom'];?>" required>
             </div>
 
             <div>
                 <label for="">Mail</label>
-                <input type="text" name="mail" value="">
+                <input type="text" name="mail"value="<?php echo $groupe['mail'];?>">
             </div>
 
             <div>
                 <label for="">Téléphone</label>
-                <input type="text" name="telephone" value="">
+                <input type="text" name="telephone" value="<?php echo $groupe['telephone'];?>">
             </div>          
 
-            <input type="text" name ="idGroupe" value="<?php echo $_REQUEST['idGroupe'] ?>" hidden>
+            <input type="text" name ="idGroupe" value="<?php echo $_REQUEST['idPersonne'] ?>" hidden>
             <input type="text" name ="id" value="2" hidden>
 
 
@@ -91,6 +100,9 @@ switch ($_REQUEST['id']) {
         </form>
         <button>retour</button>
         <?php
+
+        }
+
         break;
     
     default:

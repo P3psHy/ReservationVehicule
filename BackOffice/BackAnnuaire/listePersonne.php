@@ -23,7 +23,7 @@
         ?>
         <div style="margin-bottom:10px;">
             <label><?php echo $groupe['nom']; ?></label>
-            <a href="blank"><button>Modifier</button></a>
+            <a href="modifierForm.php?id=2&idPersonne=<?php echo $groupe['id'];?>"><button>Modifier</button></a>
             <a href="supprimer.php?id=2&idPersonne=<?php echo $groupe['id'] ?>"><button>Supprimer</button></a>
 
         </div>
