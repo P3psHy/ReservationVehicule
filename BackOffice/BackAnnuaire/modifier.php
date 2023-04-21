@@ -19,17 +19,24 @@ switch ($_REQUEST['id']) {
 
         break;
     
-    case '2': //Fonctionnel
+    case '2': //fonctionnel
 
         require_once "../../connection.php";
 
-        $sqlModifPersonne=$connection ->prepare('INSERT INTO personnes(nom, telephone, mail, groupeId) VALUES (:nom, :telephone, :mail, :groupeId)');
+        
+
+        $sqlModifPersonne=$connection ->prepare('UPDATE personnes SET nom=:nom, mail=:mail, telephone=:telephone, groupeId=:groupeId WHERE id=:idPersonne');
         $sqlModifPersonne->bindParam(":nom", $_REQUEST['nom']);
-        $sqlModifPersonne->bindParam(":telephone", $_REQUEST['telephone']);
         $sqlModifPersonne->bindParam(":mail", $_REQUEST['mail']);
-        $sqlModifPersonne->bindParam(":groupeId", $_REQUEST['idGroupe']);
+        $sqlModifPersonne->bindParam(":telephone", $_REQUEST['telephone']);
+        $sqlModifPersonne->bindParam(":groupeId", $_REQUEST['groupeId']);
+        $sqlModifPersonne->bindParam(":idPersonne", $_REQUEST['idPersonne']);
 
         $sqlModifPersonne->execute();
+        $sqlModifPersonne->debugDumpParams();
+
+
+
 
         header("Location: listeGroupe.php");
 

@@ -49,7 +49,7 @@ switch ($_REQUEST['id']) {
                 <button type="submit">Modifier</button>
                 <button type="reset">Annuler</button>
             </form>
-            <button>retour</button>
+            <a href="listeGroupe.php"><button>retour</button></a>
 
             <?php
         }
@@ -63,42 +63,67 @@ switch ($_REQUEST['id']) {
         require_once "../../connection.php";
 
 
-        $sqlGroupe=$connection ->prepare('SELECT * FROM personnes WHERE id = :id');
-        $sqlGroupe->bindParam(":id", $_REQUEST['idPersonne']);
+        $sqlPersonne=$connection ->prepare('SELECT * FROM personnes WHERE id = :id');
+        $sqlPersonne->bindParam(":id", $_REQUEST['idPersonne']);
     
-        $sqlGroupe->execute();
+        $sqlPersonne->execute();
 
-        $ligneGroupe = $sqlGroupe->fetchall();
-        foreach($ligneGroupe as $groupe){
+        $lignePersonne = $sqlPersonne->fetchall();
+        foreach($lignePersonne as $personne){
 
         ?>
         
-        <h2>Ajouter une personne</h2>
-        <form action="ajouter.php" method="get">
+        <h2>Modifier le profil de: <?php echo $personne['nom']; ?></h2>
+        <form action="modifier.php" method="get">
 
             <div>
                 <label for="">Nom</label>
-                <input type="text" name="nom" value="<?php echo $groupe['nom'];?>" required>
+                <input type="text" name="nom" value="<?php echo $personne['nom'];?>" required>
             </div>
 
             <div>
                 <label for="">Mail</label>
-                <input type="text" name="mail"value="<?php echo $groupe['mail'];?>">
+                <input type="text" name="mail"value="<?php echo $personne['mail'];?>">
             </div>
 
             <div>
                 <label for="">Téléphone</label>
-                <input type="text" name="telephone" value="<?php echo $groupe['telephone'];?>">
-            </div>          
+                <input type="text" name="telephone" value="<?php echo $personne['telephone'];?>">
+            </div>
 
-            <input type="text" name ="idGroupe" value="<?php echo $_REQUEST['idPersonne'] ?>" hidden>
+            <div>
+                <label for="">Groupe</label>
+                <select name="groupeId" id="">
+                    
+                    <?php
+                    $sqlGroupe=$connection ->prepare('SELECT * FROM groupes');
+                
+                    $sqlGroupe->execute();
+            
+                    $ligneGroupe = $sqlGroupe->fetchall();
+                    foreach($ligneGroupe as $groupe){
+
+                        if($personne['groupeId'] == $groupe['id']){
+                            echo '<option value="'.$groupe['id'].'" selected>'.$groupe['nom'].'</option>';
+                        }else{
+                            echo '<option value="'.$groupe['id'].'">'.$groupe['nom'].'</option>';
+                        }
+
+                        
+                    }
+
+                    ?>
+                </select>
+            </div>
+
+            <input type="text" name ="idPersonne" value="<?php echo $personne['id'] ?>" hidden>
             <input type="text" name ="id" value="2" hidden>
 
 
-            <button type="submit">Ajouter</button>
+            <button type="submit">Modifier</button>
             <button type="reset">Annuler</button>
         </form>
-        <button>retour</button>
+        <a href="listePersonne.php?idGroupe=<?php echo $personne['groupeId'] ?>"><button>retour</button></a>
         <?php
 
         }

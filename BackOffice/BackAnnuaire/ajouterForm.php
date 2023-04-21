@@ -43,7 +43,7 @@ switch ($_REQUEST['id']) {
             <button type="submit">Ajouter</button>
             <button type="reset">Annuler</button>
         </form>
-        <button>retour</button>
+        <a href="listeGroupe.php"><button>retour</button></a>
         <?php
         break;
 
@@ -79,7 +79,7 @@ switch ($_REQUEST['id']) {
             <button type="submit">Ajouter</button>
             <button type="reset">Annuler</button>
         </form>
-        <button>retour</button>
+        <a href="listePersonne.php?idGroupe=<?php echo $_REQUEST['idGroupe'] ?>"><button>retour</button></a>
         <?php
         break;
     
