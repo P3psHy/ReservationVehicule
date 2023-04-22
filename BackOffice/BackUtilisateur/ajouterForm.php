@@ -36,6 +36,6 @@
             <button type="submit">Ajouter</button>
             <button type="reset">Annuler</button>
         </form>
-        <a href="listeGroupe.php"><button>retour</button></a>
+        <a href="listeUtilisateur.php"><button>retour</button></a>
         <?php
 

@@ -22,7 +22,8 @@
         ?>
         <div style="margin-bottom:10px;">
             <label>Utilisateur: <?php echo $user['prenom']." ".$user['nom']; ?></label>
-            <a href="modifierForm.php?id=<?php echo$user['idUser'] ?>"><button>Modifier</button></a>
+            <a href="changePassword.php?id=<?php echo $user['idUser'] ?>"><button>Changer Mot de passe</button></a>
+            <a href="modifierForm.php?id=<?php echo $user['idUser'] ?>"><button>Modifier</button></a>
             <a href="supprimer.php?id=<?php echo $user['idUser'] ?>"><button>Supprimer</button></a>
 
         </div>
