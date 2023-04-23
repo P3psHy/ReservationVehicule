@@ -26,7 +26,7 @@
                 <input type="password" name="psw" required> 
             </div>
 
-            <select name="aPermis" id="aPermis">
+            <select name="aPermis" id="aPermis" required>
                 <option value="0">Non</option>
                 <option value="1">Oui</option>
             </select>

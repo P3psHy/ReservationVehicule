@@ -1,5 +1,5 @@
 <?php
-
+        //fonctionnel
         require_once "../../connection.php";
 
         $sqlModifGroupe=$connection ->prepare('UPDATE vehicule SET marque=:marque, modele=:modele WHERE idVehicule=:id');
