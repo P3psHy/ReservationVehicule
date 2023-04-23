@@ -9,8 +9,7 @@
 <body>
     <h2>Choisissez</h2>
     <a href="BackAnnuaire/listeGroupe.php"><button>Annuaire</button></a>
-    <a href="BackUser/listeUsers.php"><button>Utilisateurs</button></a>
-    <a href="BackVehicule/listeVehicules.php"><button>Véhicules</button></a>
-    <a href="BackReservations/listeReservation.php"><button>Réservations</button></a>
+    <a href="BackUtilisateur/listeUtilisateu.php"><button>Utilisateurs</button></a>
+    <a href="BackVehicule/listeVehicule.php"><button>Véhicules</button></a>
 </body>
 </html>
